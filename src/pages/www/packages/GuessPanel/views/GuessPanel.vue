@@ -15,7 +15,7 @@ import { ref, onMounted } from 'vue'
 import components from "../components"
 import { STT, Ex_WebSocket_UnLogin } from "@/src/requires"
 import global from "@/src/global"
-import common from "@/src/common"
+import utils from "@/src/utils"
 
 export default {
     components: {
@@ -31,7 +31,7 @@ export default {
         }
 
         const getType = (str) => {
-            return common.getStrMiddle(str, "type@=", "/");
+            return utils.getStrMiddle(str, "type@=", "/");
         }
 
         const handleWs = (text) => {

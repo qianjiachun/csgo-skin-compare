@@ -29,7 +29,7 @@
 
 <script>
 import { ref, watch } from 'vue'
-import common from "@/src/common"
+import utils from "@/src/utils"
 import global from "@/src/global"
 import { setUserBet } from "../apis"
 export default {
@@ -59,7 +59,7 @@ export default {
         const secondWillWinAmount = ref(0);
 
         let isBetting = false;
-        let ccn = common.getCCN();
+        let ccn = utils.getCCN();
         // 监测到竞猜信息变化
         // 判断是否满足条件，如果满足条件就下注
         // 1. 是否开启了秒盘功能
