@@ -1,10 +1,6 @@
-import { initPkg_GuessIcon } from "./GuessIcon"
-import { initPkg_GuessPanel } from "./GuessPanel"
-
+import {initPkg_TestA} from "./TestA"
 function initPkg() {
-    // initPkg_TestA();
-    initPkg_GuessIcon();
-    initPkg_GuessPanel();
+    initPkg_TestA();
 }
 
 export {

@@ -1,4 +1,14 @@
-import router from "./router"
+import {initPkg} from "./packages"
+
+function beforeInit() {
+
+}
+
+function init() {
+    beforeInit();
+    initPkg();
+}
+
 export default {
-    router
+    init
 }

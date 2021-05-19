@@ -1,8 +1,8 @@
 import { createApp } from "vue"
-import views from "./views"
+import {TestA} from "./views"
 
 function initPkg_TestA() {
-    createApp(views.TestA).mount("#js-player-title");
+    createApp(TestA).mount("#u1");
 }
 
 export {

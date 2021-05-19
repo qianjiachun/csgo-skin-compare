@@ -1,4 +1,4 @@
 import TestA from "./TestA.vue"
-export default {
+export {
     TestA
 }
