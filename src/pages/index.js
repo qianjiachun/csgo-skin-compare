@@ -1,4 +1,6 @@
-import www from "./www"
+// import www from "./www"
+import buff from "./buff"
 export default {
-    www
+    // www
+    buff,
 }
