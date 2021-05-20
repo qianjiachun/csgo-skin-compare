@@ -1,12 +1,30 @@
 import {getAssetIdInfo} from "./apis"
-import {getStrMiddle} from "@/src/utils"
+import {getStrMiddle, showMessage} from "@/src/utils"
+import {DomHook} from "@/src/utils/DomHook"
+
+
+let skinImg // 皮肤图片地址
+let skinName // 皮肤名字
+const LIST_MAX = 50 // 对比列表最多存放数
 
 function init() {
     initDom();
     initFunc();
+    let hook = new DomHook(".detail-tab-cont", false, (m => {
+        for (let i = 0; i < m[0].addedNodes.length; i++) {
+            let item = m[0].addedNodes[i];
+            if (item.id == "market-selling-list") {
+                initDom();
+                initFunc();
+                break;
+            }
+        }
+    }))
 }
 
 function initDom() {
+    skinImg = getSkinImg();
+    skinName = getSkinName();
     let domList = document.getElementsByClassName("ctag btn_3d");
     for (let i = 0; i < domList.length; i++) {
         let parentDom = domList[i].parentNode;
@@ -36,16 +54,95 @@ function onClickAddButton(assetid) {
         return res.text();
     }).then(ret => {
         if (ret.indexOf("not found") !== -1 || ret.indexOf("不支持3D") !== -1) {
-            alert("不支持");
+            showMessage("解析该饰品失败", "error");
             return;
         }
         let doc = (new DOMParser()).parseFromString(ret, 'text/html');
         let scripts = doc.scripts;
         let data = JSON.parse(getStrMiddle(scripts[scripts.length - 1].innerHTML, "var data = ", ";"));
-        console.log(data);
+        let obj = getSkinData(data);
+        obj.assetid = assetid;
+        if (obj) {
+            if (saveData2CompareList(obj)) {
+                showMessage("加入对比列表成功", "success");
+            } else {
+                showMessage("该饰品已存在于对比列表", "error");
+            }
+        } else {
+            showMessage("加入对比列表失败", "error");
+        }
+        
     }).catch(err => {
         console.log(err);
     })
+}
+
+function getSkinData(data) {
+    // 构造对比列表里的饰品对象信息
+    let ret = data;
+    if (data) {
+        let i = 1;
+        let textureList = [];
+        while (`texture_${i}` in data.texture_url) {
+            if (i > 10000) {
+                // 熔断
+                break;
+            }
+            textureList.push({id: `texture_${i}`, url: data.texture_url[`texture_${i}`]});
+            i++;
+        }
+        ret.textures = textureList;
+        ret.name = skinName;
+        ret.img_url = skinImg;
+        ret.update_time = new Date().getTime();
+    }
+    return ret;
+}
+
+function getSkinImg() {
+    let ret = "";
+    let parent = document.getElementsByClassName("t_Center");
+    if (parent) {
+        let imgDom = parent[0].getElementsByTagName("img");
+        if (imgDom) {
+            ret = imgDom[0].src;
+        }
+    }
+    return ret;
+}
+
+function getSkinName() {
+    let ret = "";
+    let parent = document.getElementsByClassName("cru-goods");
+    for (let i = 0; i < parent.length; i++) {
+        let item = parent[i];
+        ret += item.innerText;
+    }
+    return ret;
+}
+
+function saveData2CompareList(data) {
+    let value = GM_getValue("CompareList") || "[]";
+    let compareList = JSON.parse(value);
+
+    let isExist = false;
+    for (let i = 0; i < compareList.length; i++) {
+        if (data.assetid == compareList[i].assetid) {
+            isExist = true;
+            break;
+        }
+    }
+    if (isExist) {
+        return false;
+    }
+    if (compareList.length > LIST_MAX) {
+        compareList.pop(); // 删除最后一个
+    }
+    compareList.unshift(data); // 插入到第一个
+    
+    let text = JSON.stringify(compareList);
+    GM_setValue("CompareList", text);
+    return true;
 }
 
 export default {

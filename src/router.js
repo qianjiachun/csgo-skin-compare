@@ -5,6 +5,10 @@ function initRouter() {
     if (location.href.indexOf("buff") !== -1) {
         pages.buff.init();
     }
+
+    if (location.href.indexOf("spect") !== -1) {
+        pages.spect.init();
+    }
 }
 
 export {
