@@ -28,9 +28,10 @@ function initDom() {
     let domList = document.getElementsByClassName("ctag btn_3d");
     for (let i = 0; i < domList.length; i++) {
         let parentDom = domList[i].parentNode;
+        let trDom = domList[i].parentNode.parentNode.parentNode.parentNode;
         let assetid = domList[i].getAttribute("data-assetid");
-        let inspectUrl = parentDom.parentNode.parentNode.parentNode.getElementsByClassName("csgo_inspect_img_btn")[0].getAttribute("data-inspecturl");
-        let price = parentDom.parentNode.parentNode.parentNode.getElementsByClassName("c_Blue2 bargain gM6")[0].getAttribute("data-price");
+        let inspectUrl = trDom.getElementsByClassName("csgo_inspect_img_btn")[0].getAttribute("data-inspecturl");
+        let price = trDom.getElementsByClassName("btn-buy-order")[0].getAttribute("data-price");
         if (assetid) {
             let dom = document.createElement("a");
             dom.className = "ctag compare-btn";
