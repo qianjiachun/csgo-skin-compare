@@ -13,8 +13,9 @@ function initDom() {
 	a.className = "j_drop-handler";
     a.id = "comparelist"
     a.innerHTML = `<a href="javascript: void(0);"><strong>对比列表</strong></a> <i class="icon icon_new" style="display: none;"></i>`
-	let b = document.getElementById("j_mybackpack").parentNode;
-	b.insertBefore(a, b.childNodes[0]);
+	let b = document.querySelector(".nav > ul");
+    b.appendChild(a);
+	// b.insertBefore(a, b.childNodes[0]);
 }
 
 function initFunc() {

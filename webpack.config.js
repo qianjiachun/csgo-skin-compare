@@ -52,5 +52,8 @@ module.exports = (env = {}) => ({
     stats: 'minimal',
     contentBase: __dirname,
     overlay: true
+  },
+  externals: {
+    vue: 'Vue',
   }
 })

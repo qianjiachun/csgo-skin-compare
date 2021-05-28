@@ -71,6 +71,10 @@ function onClickAddButton(info) {
         let doc = (new DOMParser()).parseFromString(ret, 'text/html');
         let scripts = doc.scripts;
         let data = JSON.parse(getStrMiddle(scripts[scripts.length - 1].innerHTML, "var data = ", ";"));
+        if (!data) {
+            showMessage("解析失败 原因：未登录", "error");
+            return;
+        }
         let obj = getSkinData(data);
         obj.assetid = info.assetid;
         obj.price = info.price;
