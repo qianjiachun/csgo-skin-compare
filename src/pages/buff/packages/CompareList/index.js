@@ -39,6 +39,8 @@ function initFunc() {
         });
         
         createApp(CompareList).mount("#compare__app");
+        // createApp(CompareList).mount("#compare__app");
+        // createApp(CompareList).mount("#compare__app");
         // console.log(JSON.parse(GM_getValue("CompareList") || "[]"))
     });
 }
