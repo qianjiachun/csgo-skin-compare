@@ -15,7 +15,6 @@ function initDom() {
     a.innerHTML = `<a href="javascript: void(0);"><strong>对比列表</strong></a> <i class="icon icon_new" style="display: none;"></i>`
 	let b = document.querySelector(".nav > ul");
     b.appendChild(a);
-	// b.insertBefore(a, b.childNodes[0]);
 }
 
 function initFunc() {

@@ -5,21 +5,44 @@
                 <tr>
                     <th width="7%"></th>
                     <th>饰品</th>
-                    <th>价格</th>
+                    <th width="25%">卖家</th>
+                    <th width="15%">检视</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(item, index) in compareList" :key="index">
                     <td width="7%"><input type="checkbox" :id="item.assetid" :value="item.assetid" v-model="checkedList"></td>
                     <td><skin-info :assetid="item.assetid" :imgUrl="item.img_url" :viewUrl="item.inspectUrl" :skinName="item.name" :skinSeed="item.asset_info.paintseed" :skinWear="item.asset_info.paintwear"></skin-info></td>
+                    <td width="25%" style="text-align:left">
+                        <a :href="item.shopHref" class="j_shoptip_handler" target="_blank">
+                            <img :src="item.shopImg" width="30" height="30" class="user-thum">
+                            {{item.shopName}}
+                        </a>
+                    </td>
+                    <td width="15%">
+                        <a class="ctag btn_3d" :data-assetid="item.assetid"><b><i class="icon icon_3d"></i></b>3D检视</a>
+                        <a class="ctag btn_game_cms" :data-assetid="item.assetid" target="_blank"><b><i class="icon icon_game"></i></b>社区服检视</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <div @click="l">哈哈</div>
+        <div class="list-footer">
+            <button @click="onClickDelete" type="button" class="el-button el-button--danger" style="margin-right:10px;width:100px;">
+                <span>删除选中</span>
+            </button>
+            <button @click="onClickCompare2d" type="button" class="el-button el-button--primary compare2d-btn" style="margin-right:10px;width:100px;">
+                <span>2D对比</span>
+            </button>
+            <button disabled="disabled" type="button" class="el-button el-button--success is-disabled compare3d-btn" style="width:100px;">
+                <span>3D对比</span>
+            </button>
+        </div>
+        
     </div>
 </template>
 
 <script>
+import { showMessage } from '@/src/utils';
 import { defineComponent, ref, onMounted, nextTick } from 'vue'
 import SkinInfo from '../components/SkinInfo.vue';
 export default defineComponent({
@@ -29,17 +52,59 @@ export default defineComponent({
     setup(props, ctx) {
         let compareList = ref([]);
         let checkedList = ref([]);
-        const l = () => {
-            console.log(checkedList.value)
-        }
-        onMounted(() => {
+
+        const updateCompareList = () => {
             compareList.value = JSON.parse(GM_getValue("CompareList")) || [];
-            console.log(compareList.value);
+        }
+
+        const onClickDelete = () => {
+            for (let i = 0; i < checkedList.value.length; i++) {
+                let item = checkedList.value[i];
+                let index = getIndexByAssetId(item);
+                // 删除元素
+                compareList.value.splice(index, 1);
+            }
+            // 处理完后保存数据
+            GM_setValue("CompareList", JSON.stringify(compareList.value));
+            // 刷新列表
+            updateCompareList();
+        }
+
+        const getIndexByAssetId = (assetid) => {
+            let ret = -1;
+            for (let i = 0; i < compareList.value.length; i++) {
+                let item = compareList.value[i];
+                if (item.assetid == assetid) {
+                    ret = i;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        const onClickCompare2d = () => {
+            if (checkedList.value.length == 2) {
+                let compare2dData = [];
+                for (let i = 0; i < checkedList.value.length; i++) {
+                    let item = checkedList.value[i];
+                    let index = getIndexByAssetId(item);
+                    compare2dData.push(compareList.value[index]);
+                }
+                GM_setValue("CompareList_2D", JSON.stringify(compare2dData));
+                window.open("https://spect.fp.ps.netease.com/compare2d");
+            } else {
+                showMessage("请选择2项", "error");
+            }
+        }
+
+        onMounted(() => {
+            updateCompareList();
         })
         return {
             compareList,
             checkedList,
-            l
+
+            onClickDelete, onClickCompare2d
         }
     },
 })
@@ -84,5 +149,80 @@ export default defineComponent({
 
 .compare__table tbody tr:hover {
     background: rgb(245,245,245);
+}
+
+.el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.el-button--primary {
+    color: #fff;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+
+.el-button--primary:hover {
+    background: #66b1ff;
+    border-color: #66b1ff;
+    color: #fff;
+}
+
+.el-button.is-disabled, .el-button.is-disabled:focus, .el-button.is-disabled:hover {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+}
+
+.el-button--success {
+    color: #fff;
+    background-color: #67c23a;
+    border-color: #67c23a;
+}
+.el-button--success:hover {
+    background: #85ce61;
+    border-color: #85ce61;
+    color: #fff;
+}
+.el-button--success.is-disabled, .el-button--success.is-disabled:active, .el-button--success.is-disabled:focus, .el-button--success.is-disabled:hover {
+    color: #fff;
+    background-color: #b3e19d;
+    border-color: #b3e19d;
+}
+
+.el-button--danger {
+    color: #fff;
+    background-color: #f56c6c;
+    border-color: #f56c6c;
+}
+
+.el-button--danger:hover {
+    background: #f78989;
+    border-color: #f78989;
+    color: #fff;
+}
+
+.list-footer{
+    text-align: right;
 }
 </style>

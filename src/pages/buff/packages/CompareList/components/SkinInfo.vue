@@ -12,7 +12,6 @@
                 <div class="wear-pointer"><div class="wear-pointer-icon" :style="`left: ${Number(skinWear*100)}%`"></div></div>
                 <div class="progress" style="margin-bottom: 5px;"><div class="progress-bar progress-bar-fn" style="width: 7%;" title="崭新出厂"></div><div class="progress-bar progress-bar-success" style="width: 8%;" title="略有磨损"></div><div class="progress-bar progress-bar-warning" style="width: 23%;" title="久经沙场"></div><div class="progress-bar progress-bar-danger" style="width: 7%;" title="破损不堪"></div><div class="progress-bar progress-bar-bs" style="width: 55%;" title="战痕累累"></div></div>
             </div>
-            <a class="ctag btn_3d" :data-assetid="assetid"><b><i class="icon icon_3d"></i></b>3D检视</a>
         </div>
     </div>
 </template>
@@ -55,6 +54,7 @@ export default defineComponent({
     width: 48px;
     position: relative;
     top: -22px;
+    left: 2px;
     color: white !important;
 }
 

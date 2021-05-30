@@ -1,8 +1,8 @@
 // import www from "./www"
 import buff from "./buff"
-import spect from "./spect"
+import spect2d from "./spect2d"
 export default {
     // www
     buff,
-    spect
+    spect2d
 }

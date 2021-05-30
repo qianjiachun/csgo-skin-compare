@@ -7,7 +7,11 @@ function initRouter() {
     }
 
     if (location.href.indexOf("spect") !== -1) {
-        pages.spect.init();
+        if (location.href.indexOf("compare2d") !== -1) {
+            pages.spect2d.init();
+        } else if (location.href.indexOf("compare3d") !== -1) {
+            // pages.spect2d.init();
+        }
     }
 }
 
