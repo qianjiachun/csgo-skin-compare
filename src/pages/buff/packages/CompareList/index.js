@@ -36,8 +36,9 @@ function initFunc() {
         document.getElementsByClassName("compare__mask")[0].addEventListener("click", () => {
             onClickCloseCompareList();
         });
+        let app = createApp(CompareList);
+        app.mount("#compare__app");
         
-        createApp(CompareList).mount("#compare__app");
         // createApp(CompareList).mount("#compare__app");
         // createApp(CompareList).mount("#compare__app");
         // console.log(JSON.parse(GM_getValue("CompareList") || "[]"))

@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in compareList" :key="index">
+                <tr v-for="(item, index) in compareList" :key="item.assetid">
                     <td width="7%"><input type="checkbox" :id="item.assetid" :value="item.assetid" v-model="checkedList"></td>
                     <td><skin-info :assetid="item.assetid" :imgUrl="item.img_url" :viewUrl="item.inspectUrl" :skinName="item.name" :skinSeed="item.asset_info.paintseed" :skinWear="item.asset_info.paintwear"></skin-info></td>
                     <td width="25%" style="text-align:left">
@@ -43,7 +43,7 @@
 
 <script>
 import { showMessage } from '@/src/utils';
-import { defineComponent, ref, onMounted, nextTick } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import SkinInfo from '../components/SkinInfo.vue';
 export default defineComponent({
     components: {
@@ -84,14 +84,29 @@ export default defineComponent({
 
         const onClickCompare2d = () => {
             if (checkedList.value.length == 2) {
+                // 判断是不是同类饰品
                 let compare2dData = [];
+                let textureNum = 0;
+                let isSame = true;
                 for (let i = 0; i < checkedList.value.length; i++) {
                     let item = checkedList.value[i];
                     let index = getIndexByAssetId(item);
+                    if (i == 0) {
+                        textureNum = compareList.value[index].textures.length;
+                    } else if (compareList.value[index].textures.length !== textureNum) {
+                        isSame = false;
+                        break;
+                    }
                     compare2dData.push(compareList.value[index]);
                 }
-                GM_setValue("CompareList_2D", JSON.stringify(compare2dData));
-                window.open("https://spect.fp.ps.netease.com/compare2d");
+
+                if (isSame) {
+                    GM_setValue("CompareList_2D", JSON.stringify(compare2dData));
+                    window.open("https://spect.fp.ps.netease.com/compare2d");
+                } else {
+                    showMessage("请选择同类型的饰品", "error");
+                }
+                
             } else {
                 showMessage("请选择2项", "error");
             }
@@ -114,7 +129,7 @@ export default defineComponent({
 .compare__table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #212529;
+    color: rgb(29,30,35);
     border-collapse: collapse;
     border-spacing: 0;
     text-align: center;

@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.pdl-10 {
+    padding-left: 10px;
+}
+
+.pdl-20 {
+    padding-left: 20px;
+}
+
+.wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    background-color: rgb(29,30,35);
+    cursor: default;
+    height: 100%;
+    flex: 0 0 250px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-family: "微软雅黑";
+    user-select:none;
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+}
+
+.menu__title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: #f6ca9d;
+}
+
+.sub__view {
+    margin-bottom: 30px;
+}
+
+.view__title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.view__item {
+    cursor: pointer;
+    height: 56px;
+    line-height: 56px;
+}
+
+.view__item:hover {
+    background-color: rgb(23,24,28);
+}
+
+.is-active {
+    background-color: rgb(23,24,28);
+    color: white;
+}
+
+.texture__title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.texture__item {
+    cursor: pointer;
+    height: 56px;
+    line-height: 56px;
+}
+
+.texture__item:hover {
+    background-color: rgb(23,24,28);
+}

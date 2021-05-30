@@ -8,13 +8,12 @@ function initRouter() {
 
     if (location.href.indexOf("spect") !== -1) {
         if (location.href.indexOf("compare2d") !== -1) {
-            pages.spect2d.init();
+            pages.spect.init();
         } else if (location.href.indexOf("compare3d") !== -1) {
             // pages.spect2d.init();
         }
     }
 }
-
 export {
     initRouter
 }
