@@ -3,7 +3,7 @@ import "./styles/index.css"
 import { Compare, Diff } from "./views"
 
 
-let compareList = JSON.parse(GM_getValue("CompareList_2D")) || [];
+let compareList = JSON.parse(GM_getValue("CompareList_2D") || "[]") || [];
 let app;
 
 function init() {

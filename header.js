@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         CSGO饰品对比
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
+// @namespace    https://github.com/qianjiachun
+// @version      2021.05.31.02
+// @description  使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了
 // @author       小淳
 // @match        *://buff.163.com/market/goods*
 // @match        *://spect.fp.ps.netease.com/*
@@ -14,5 +14,4 @@
 // @require      https://lib.baomitu.com/vue/3.0.11/vue.global.prod.js
 // @require      https://cdn.jsdelivr.net/npm/comparison-slider@1.1.0/dist/comparison-slider.min.js
 // @require      https://cdn.jsdelivr.net/npm/canvas-compare@3.0.0/src/canvas-compare.min.js
-// @require      file://D:\Data\code\csgo\csgo-skin-compare\dist\main.js
 // ==/UserScript==
