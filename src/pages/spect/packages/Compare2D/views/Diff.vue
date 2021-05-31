@@ -105,7 +105,6 @@ export default defineComponent({
 
         onMounted(() => {
             // return
-            showMessage("图片加载中...", "info");
             let img1Finished = false;
             let img2Finished = false;
             getBase64(img1Url, (base64) => {
