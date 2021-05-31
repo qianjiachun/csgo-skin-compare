@@ -55,5 +55,8 @@ module.exports = (env = {}) => ({
   },
   externals: {
     vue: 'Vue',
+  },
+  optimization: {
+    minimize: false
   }
 })

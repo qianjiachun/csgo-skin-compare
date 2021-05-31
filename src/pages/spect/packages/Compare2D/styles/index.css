@@ -17,6 +17,16 @@
     height: 100%;
 }
 
+.watermark {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 24px;
+}
+
 .menu {
     background-color: rgb(29,30,35);
     cursor: default;

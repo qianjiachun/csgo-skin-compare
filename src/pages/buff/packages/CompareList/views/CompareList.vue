@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import "@/src/global/styles/index.css"
 import { showMessage } from '@/src/utils';
 import { defineComponent, ref, onMounted } from 'vue'
 import SkinInfo from '../components/SkinInfo.vue';
@@ -64,6 +65,7 @@ export default defineComponent({
                 // 删除元素
                 compareList.value.splice(index, 1);
             }
+            checkedList.value.length = 0;
             // 处理完后保存数据
             GM_setValue("CompareList", JSON.stringify(compareList.value));
             // 刷新列表
@@ -164,77 +166,6 @@ export default defineComponent({
 
 .compare__table tbody tr:hover {
     background: rgb(245,245,245);
-}
-
-.el-button {
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid #dcdfe6;
-    color: #606266;
-    -webkit-appearance: none;
-    text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    margin: 0;
-    transition: .1s;
-    font-weight: 500;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 4px;
-}
-
-.el-button--primary {
-    color: #fff;
-    background-color: #409eff;
-    border-color: #409eff;
-}
-
-.el-button--primary:hover {
-    background: #66b1ff;
-    border-color: #66b1ff;
-    color: #fff;
-}
-
-.el-button.is-disabled, .el-button.is-disabled:focus, .el-button.is-disabled:hover {
-    color: #c0c4cc;
-    cursor: not-allowed;
-    background-image: none;
-    background-color: #fff;
-    border-color: #ebeef5;
-}
-
-.el-button--success {
-    color: #fff;
-    background-color: #67c23a;
-    border-color: #67c23a;
-}
-.el-button--success:hover {
-    background: #85ce61;
-    border-color: #85ce61;
-    color: #fff;
-}
-.el-button--success.is-disabled, .el-button--success.is-disabled:active, .el-button--success.is-disabled:focus, .el-button--success.is-disabled:hover {
-    color: #fff;
-    background-color: #b3e19d;
-    border-color: #b3e19d;
-}
-
-.el-button--danger {
-    color: #fff;
-    background-color: #f56c6c;
-    border-color: #f56c6c;
-}
-
-.el-button--danger:hover {
-    background: #f78989;
-    border-color: #f78989;
-    color: #fff;
 }
 
 .list-footer{

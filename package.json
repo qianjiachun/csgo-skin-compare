@@ -6,6 +6,7 @@
     "start": "webpack --watch"
   },
   "dependencies": {
+    "@vueform/slider": "^1.0.5",
     "style-loader": "^1.2.1",
     "vue": "^3.0.11"
   },

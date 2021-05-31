@@ -16,6 +16,9 @@ function initDom() {
     let a = document.createElement("div");
 	a.className = "wrap";
     a.innerHTML = `
+    <div class="watermark">
+        <span>--By 小淳</span>
+    </div>
     <div class="menu">
         <div class="menu__title">饰品2D对比</div>
         <div class="menu__sub">
@@ -139,6 +142,9 @@ function initFunc() {
         })
     }
 
+    document.getElementsByClassName("watermark")[0].addEventListener("click", () => {
+        window.open("https://github.com/qianjiachun/csgo-skin-compare");
+    })
 }
 
 
