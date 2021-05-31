@@ -19,12 +19,32 @@
 
 .watermark {
     position: fixed;
-    right: 5px;
-    top: 5px;
+    right: 10px;
+    top: 10px;
     color: rgba(255, 255, 255, 0.6);
     z-index: 1;
     cursor: pointer;
     font-size: 24px;
+}
+
+.skin1-info {
+    position: fixed;
+    left: 260px;
+    bottom: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.skin2-info {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .menu {

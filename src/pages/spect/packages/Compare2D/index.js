@@ -19,6 +19,20 @@ function initDom() {
     <div class="watermark">
         <span>--By 小淳</span>
     </div>
+    <div class="skin1-info">
+        <span>${compareList[0].name}</span>
+        <br/>
+        <span>模板：${compareList[0].asset_info.paintseed}</span>
+        <br/>
+        <span>磨损：${compareList[0].asset_info.paintwear}</span>
+    </div>
+    <div class="skin2-info">
+        <span>${compareList[1].name}</span>
+        <br/>
+        <span>模板：${compareList[1].asset_info.paintseed}</span>
+        <br/>
+        <span>磨损：${compareList[1].asset_info.paintwear}</span>
+    </div>
     <div class="menu">
         <div class="menu__title">饰品2D对比</div>
         <div class="menu__sub">
