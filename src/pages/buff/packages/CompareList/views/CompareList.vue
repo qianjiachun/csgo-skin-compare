@@ -33,7 +33,7 @@
             <button @click="onClickCompare2d" type="button" class="el-button el-button--primary compare2d-btn" style="margin-right:10px;width:100px;">
                 <span>2D对比</span>
             </button>
-            <button disabled="disabled" type="button" class="el-button el-button--success is-disabled compare3d-btn" style="width:100px;">
+            <button @click="onClickCompare3d" type="button" class="el-button el-button--success compare3d-btn" style="width:100px;">
                 <span>3D对比</span>
             </button>
         </div>
@@ -114,6 +114,10 @@ export default defineComponent({
             }
         }
 
+        const onClickCompare3d = () => {
+            window.open("https://spect.fp.ps.netease.com/compare3d");
+        }
+
         onMounted(() => {
             updateCompareList();
         })
@@ -121,7 +125,7 @@ export default defineComponent({
             compareList,
             checkedList,
 
-            onClickDelete, onClickCompare2d
+            onClickDelete, onClickCompare2d, onClickCompare3d
         }
     },
 })

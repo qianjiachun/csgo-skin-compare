@@ -1,4 +1,5 @@
 import Compare2D from "./Compare2D"
+import Compare3D from "./Compare3D"
 
 function initPkg(mode) {
     // mode: "2d", "3d"
@@ -7,7 +8,7 @@ function initPkg(mode) {
             Compare2D.init();
             break;
         case "3d":
-            // Compare2D.init();
+            Compare3D.init();
             break;
         default:
             Compare2D.init();
