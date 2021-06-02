@@ -6,9 +6,9 @@ function beforeInit() {
     document.body.innerHTML = "";
 }
 
-function init(mode) {
+function init() {
     beforeInit();
-    initPkg(mode);
+    initPkg();
 }
 
 export default {

@@ -55,7 +55,7 @@ export default defineComponent({
         let checkedList = ref([]);
 
         const updateCompareList = () => {
-            compareList.value = JSON.parse(GM_getValue("CompareList")) || [];
+            compareList.value = JSON.parse(GM_getValue("CompareList") || "[]") || [];
         }
 
         const onClickDelete = () => {

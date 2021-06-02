@@ -8,9 +8,7 @@ function initRouter() {
 
     if (location.href.indexOf("spect") !== -1) {
         if (location.href.indexOf("compare2d") !== -1) {
-            pages.spect.init("2d");
-        } else if (location.href.indexOf("compare3d") !== -1) {
-            pages.spect.init("3d");
+            pages.spect.init();
         }
     }
 }
