@@ -35,14 +35,13 @@ export function getBase64(imgUrl, callback) {
 	xhr.send();
 }
 
-function createEvent(eventName, ofsx, ofsy) {
-	let evt = document.createEvent('MouseEvents');
-	evt.initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);
-	return evt;
+// 模拟鼠标按住拖动
+function createMouseEvent(eventName, ofsx, ofsy) {
+	return document.createEvent('MouseEvents').initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);;
 };
 
 export function setMouseMove(dom, x, y) {
-	dom.dispatchEvent(createEvent("mousedown"));
-	dom.dispatchEvent(createEvent("mousemove", x, y));
-	dom.dispatchEvent(createEvent("mouseup"));
+	dom.dispatchEvent(createMouseEvent("mousedown"));
+	dom.dispatchEvent(createMouseEvent("mousemove", x, y));
+	dom.dispatchEvent(createMouseEvent("mouseup"));
 }
