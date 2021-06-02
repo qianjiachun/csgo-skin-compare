@@ -34,3 +34,15 @@ export function getBase64(imgUrl, callback) {
 	}
 	xhr.send();
 }
+
+function createEvent(eventName, ofsx, ofsy) {
+	let evt = document.createEvent('MouseEvents');
+	evt.initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);
+	return evt;
+};
+
+export function setMouseMove(dom, x, y) {
+	dom.dispatchEvent(createEvent("mousedown"));
+	dom.dispatchEvent(createEvent("mousemove", x, y));
+	dom.dispatchEvent(createEvent("mouseup"));
+}
