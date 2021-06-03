@@ -72,6 +72,7 @@ function initFunc() {
         if (e.isMessage) {
             return;
         }
+        console.log(mouseMoveInfo)
         isMouseDown = false;
         postMessage({
             cmd: "rotate",

@@ -25,6 +25,7 @@
     z-index: 1;
     cursor: pointer;
     font-size: 24px;
+    user-select: none;
 }
 
 .skin1-info {

@@ -65,9 +65,14 @@ function initFunc() {
         location.href = "https://buff.163.com/compare3d#model" + e.key;
     })
 
-    document.getElementsByClassName("compare3d__watermark")[0].addEventListener("click", () => {
+    document.getElementsByClassName("compare3d__watermark")[0].addEventListener("click", (e) => {
+        e.stopPropagation();
         window.open("https://github.com/qianjiachun/csgo-skin-compare");
     })
+
+    document.getElementsByClassName("compare3d__tips")[0].onclick = (e) => {
+        e.stopPropagation();
+    }
 }
 
 function initMessage(callback) {

@@ -38,7 +38,11 @@ export function getBase64(imgUrl, callback) {
 // 模拟鼠标按住拖动
 function createMouseEvent(eventName, ofsx, ofsy) {
 	let evt = document.createEvent('MouseEvents');
-	evt.initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);
+	evt = new MouseEvent(eventName, {
+		clientX: ofsx,
+		clientY: ofsy,
+		bubbles: true
+	})
 	evt.isMessage = true;
 	return evt
 };
