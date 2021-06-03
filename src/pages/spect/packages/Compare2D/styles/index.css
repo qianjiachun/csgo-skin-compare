@@ -17,7 +17,7 @@
     height: 100%;
 }
 
-.watermark {
+.compare2d__watermark {
     position: fixed;
     right: 10px;
     top: 10px;

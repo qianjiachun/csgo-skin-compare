@@ -1,6 +1,8 @@
 import AddButton from "./AddButton"
 import CompareList from "./CompareList"
 import Compare3D from "./Compare3D"
+import Inspect3D from "./Inspect3D"
+
 function initPkg() {
     if (location.href.indexOf("market/goods") !== -1) {
         let timer = setInterval(() => {
@@ -11,6 +13,8 @@ function initPkg() {
         }, 300);
     } else if (location.href.indexOf("compare3d") !== -1) {
         initCompare3D();
+    } else if (location.href.indexOf("market/csgo_inspect/3d") !== -1) {
+        initInspect3D();
     }
 }
 
@@ -21,6 +25,10 @@ function initMarket() {
 
 function initCompare3D() {
     Compare3D.init();
+}
+
+function initInspect3D() {
+    Inspect3D.init();
 }
 
 export {

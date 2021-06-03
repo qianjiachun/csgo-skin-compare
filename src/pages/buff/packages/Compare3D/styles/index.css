@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.compare3d__iframe {
+    width: 100%;
+    height: 100vh;
+    border: 0px solid white;
+}
+
+.compare3d__tips {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    top: 70px;
+    left: 10px;
+    cursor: default;
+}
+
+.compare3d__watermark {
+    position: fixed;
+    right: 10px;
+    top: 70px;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 24px;
+}

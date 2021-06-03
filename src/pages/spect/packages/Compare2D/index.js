@@ -16,7 +16,7 @@ function initDom() {
     let a = document.createElement("div");
 	a.className = "wrap";
     a.innerHTML = `
-    <div class="watermark">
+    <div class="compare2d__watermark">
         <span>--By 小淳</span>
     </div>
     <div class="skin1-info">
@@ -156,7 +156,7 @@ function initFunc() {
         })
     }
 
-    document.getElementsByClassName("watermark")[0].addEventListener("click", () => {
+    document.getElementsByClassName("compare2d__watermark")[0].addEventListener("click", () => {
         window.open("https://github.com/qianjiachun/csgo-skin-compare");
     })
 }

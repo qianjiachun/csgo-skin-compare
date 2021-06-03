@@ -115,6 +115,17 @@ export default defineComponent({
         }
 
         const onClickCompare3d = () => {
+            if (checkedList.value.length > 9) {
+                showMessage("最多选择9项", "error");
+                return;
+            }
+            let compare3dData = [];
+            for (let i = 0; i < checkedList.value.length; i++) {
+                let item = checkedList.value[i];
+                let index = getIndexByAssetId(item);
+                compare3dData.push(compareList.value[index]);
+            }
+            GM_setValue("CompareList_3D", JSON.stringify(compare3dData));
             window.open("https://buff.163.com/compare3d");
         }
 

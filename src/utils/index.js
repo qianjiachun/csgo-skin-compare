@@ -37,11 +37,21 @@ export function getBase64(imgUrl, callback) {
 
 // 模拟鼠标按住拖动
 function createMouseEvent(eventName, ofsx, ofsy) {
-	return document.createEvent('MouseEvents').initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);;
+	let evt = document.createEvent('MouseEvents');
+	evt.initMouseEvent(eventName, true, true, document.defaultView, 0, 0, 0, ofsx, ofsy, false, false, false, false, 0, null);
+	evt.isMessage = true;
+	return evt
 };
 
 export function setMouseMove(dom, x, y) {
 	dom.dispatchEvent(createMouseEvent("mousedown"));
 	dom.dispatchEvent(createMouseEvent("mousemove", x, y));
 	dom.dispatchEvent(createMouseEvent("mouseup"));
+}
+
+// 获取URL参数
+export function getQueryString(name) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    let r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
 }

@@ -5,6 +5,7 @@
 // @description  使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了
 // @author       小淳
 // @match        *://buff.163.com/market/goods*
+// @match        *://buff.163.com/market/csgo_inspect/3d?compare=true*
 // @match        *://spect.fp.ps.netease.com/*
 // @match        *://buff.163.com/compare3d*
 // @grant        GM_setValue
