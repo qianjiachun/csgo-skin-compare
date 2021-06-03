@@ -31,7 +31,6 @@ export default defineComponent({
         let resolutionValue = ref(1);
         let thresholdValue = ref(0);
         
-
         let {proxy} = getCurrentInstance();
         let img1Url = proxy.img1;
         let img2Url = proxy.img2;
@@ -48,15 +47,6 @@ export default defineComponent({
             threshold: 0, // 0..255, optional, defaults to 0
             isNormalized: false // Boolean, optional, defaults to false
         })
-
-        const removeBlack = () => {
-			for (let i = 0; i < data.length; i += 4) {
-				if(data[i]+ data[i + 1] + data[i + 2] < 10){ 
-					data[i + 3] = 0; // alpha
-				}
-			} 
-			context.putImageData(imageData, 0, 0); 
-		}; 
 
         const onUpdateSliderBrightness = (v) => {
             canvas1.value.style.filter = `brightness(${v})`;

@@ -106,17 +106,17 @@ export default defineComponent({
                     GM_setValue("CompareList_2D", JSON.stringify(compare2dData));
                     window.open("https://spect.fp.ps.netease.com/compare2d");
                 } else {
-                    showMessage("请选择同类型的饰品", "error");
+                    showMessage("【2D对比】请选择同类型的饰品", "error");
                 }
                 
             } else {
-                showMessage("请选择2项", "error");
+                showMessage("【2D对比】请选择2项", "error");
             }
         }
 
         const onClickCompare3d = () => {
             if (checkedList.value.length > 9) {
-                showMessage("最多选择9项", "error");
+                showMessage("【3D对比】最多选择9项", "error");
                 return;
             }
             let compare3dData = [];
