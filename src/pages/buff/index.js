@@ -6,12 +6,7 @@ function beforeInit() {
 
 function init() {
     beforeInit();
-    let timer = setInterval(() => {
-        if (document.getElementsByClassName("t_Left")) {
-            initPkg();
-            clearInterval(timer);
-        }
-    }, 300);
+    initPkg();
 }
 
 export default {

@@ -6,6 +6,7 @@
 // @author       小淳
 // @match        *://buff.163.com/market/goods*
 // @match        *://spect.fp.ps.netease.com/*
+// @match        *://buff.163.com/compare3d*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_deleteValue

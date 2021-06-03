@@ -115,7 +115,7 @@ export default defineComponent({
         }
 
         const onClickCompare3d = () => {
-            window.open("https://spect.fp.ps.netease.com/compare3d");
+            window.open("https://buff.163.com/compare3d");
         }
 
         onMounted(() => {
