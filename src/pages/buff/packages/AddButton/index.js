@@ -31,6 +31,10 @@ function initDom() {
         let trDom = domList[i].parentNode.parentNode.parentNode.parentNode;
         let assetid = domList[i].getAttribute("data-assetid");
         let inspectUrl = trDom.getElementsByClassName("csgo_inspect_img_btn")[0].getAttribute("data-inspecturl");
+        if (!trDom.getElementsByClassName("btn-buy-order")[0]) {
+            // 有自己上架的饰品
+            continue;
+        }
         let price = trDom.getElementsByClassName("btn-buy-order")[0].getAttribute("data-price");
         let shopDom = trDom.getElementsByClassName("j_shoptip_handler")[0];
         let shopHref = shopDom.href;
