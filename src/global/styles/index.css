@@ -63,3 +63,15 @@
     border-color: #f78989;
     color: #fff;
 }
+
+.el-button--warning {
+    color: #fff;
+    background-color: #e6a23c;
+    border-color: #e6a23c;
+}
+
+.el-button--warning:focus, .el-button--warning:hover {
+    background: #ebb563;
+    border-color: #ebb563;
+    color: #fff;
+}

@@ -27,7 +27,10 @@
             </tbody>
         </table>
         <div class="list-footer">
-            <button @click="onClickDelete" type="button" class="el-button el-button--danger" style="margin-right:10px;width:100px;">
+            <button @click="onClickClear" type="button" class="el-button el-button--danger" style="margin-right:10px;width:100px;">
+                <span>全部删除</span>
+            </button>
+            <button @click="onClickDelete" type="button" class="el-button el-button--warning" style="margin-right:10px;width:100px;">
                 <span>删除选中</span>
             </button>
             <button @click="onClickCompare2d" type="button" class="el-button el-button--primary compare2d-btn" style="margin-right:10px;width:100px;">
@@ -70,6 +73,14 @@ export default defineComponent({
             GM_setValue("CompareList", JSON.stringify(compareList.value));
             // 刷新列表
             updateCompareList();
+        }
+
+        const onClickClear = () => {
+            if (confirm("是否全部删除？")) {
+                GM_setValue("CompareList", "[]");
+                updateCompareList();
+                showMessage("全部删除成功", "success");
+            }
         }
 
         const getIndexByAssetId = (assetid) => {
@@ -136,7 +147,7 @@ export default defineComponent({
             compareList,
             checkedList,
 
-            onClickDelete, onClickCompare2d, onClickCompare3d
+            onClickDelete, onClickCompare2d, onClickCompare3d, onClickClear
         }
     },
 })
