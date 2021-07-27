@@ -4,7 +4,7 @@ import Compare3D from "./Compare3D"
 import Inspect3D from "./Inspect3D"
 
 function initPkg() {
-    if (location.href.indexOf("market/goods") !== -1) {
+    if (location.href.indexOf("goods") !== -1) {
         let timer = setInterval(() => {
             if (document.getElementsByClassName("t_Left")) {
                 initMarket();
