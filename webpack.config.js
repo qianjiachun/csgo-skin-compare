@@ -55,7 +55,7 @@ module.exports = (env = {}) => ({
   },
   externals: {
     vue: 'Vue',
-    VueformSlider: 'VueformSlider',
+    '@vueform/slider': 'VueformSlider',
   },
   optimization: {
     minimize: false

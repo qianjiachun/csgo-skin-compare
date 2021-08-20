@@ -22,6 +22,7 @@
 import { defineComponent, ref, getCurrentInstance, onMounted, nextTick } from "vue";
 import { getBase64, showMessage } from "@/src/utils/index"
 import Slider from '@vueform/slider'
+// const Slider = require('@vueform/slider')
 export default defineComponent({
     components: {
         Slider

@@ -14,6 +14,7 @@
 <script>
 import { defineComponent, ref, getCurrentInstance, onMounted, nextTick } from "vue";
 import Slider from '@vueform/slider'
+// const Slider = require('@vueform/slider')
 export default defineComponent({
     components: {
         Slider
