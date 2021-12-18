@@ -1,6 +1,8 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const { resolve } = require('path')
+const webpack = require('webpack')
+const fs = require("fs")
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (env = {}) => ({
@@ -45,6 +47,13 @@ module.exports = (env = {}) => ({
     // new MiniCssExtractPlugin({
     //   filename: '[name].css'
     // })
+    new webpack.BannerPlugin({
+      entryOnly: true, // 是否仅在入口包中输出 banner 信息
+      raw: true,
+      banner: () => {
+        return String(fs.readFileSync("./header.js"))
+      }
+    }),
   ],
   devServer: {
     inline: true,
