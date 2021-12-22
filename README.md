@@ -1,5 +1,8 @@
 ## CSGO饰品对比
 
+### 发布地址（Release & Install）
+[https://greasyfork.org/zh-CN/scripts/427277]（https://greasyfork.org/zh-CN/scripts/427277）
+
 ### 介绍
 1. 使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了
 2. 支持复制检视链接（同手机端分享），可粘贴至部分社区服（如ONET4P社区服）进行检视
@@ -10,7 +13,7 @@
 ### 安装 & 使用方法
 1. [安装油猴脚本（官方网站）](https://www.tampermonkey.net/)，或者[安装油猴脚本（谷歌扩展）](https://www.crx4chrome.com/crx/1429/)，选择【Download crx file from crx4chrome】，将下载后的文件拖入浏览器进行安装，已经安装过的跳过此步
 2. 实在不会安装的请[百度如何安装油猴脚本](https://www.baidu.com/s?wd=%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85tampermonkey) 
-3. 点击上方绿色的安装按钮，在弹出的页面中选择安装即可
+3. 点击上方绿色的[安装按钮](https://greasyfork.org/zh-CN/scripts/427277)，在弹出的页面中选择安装即可
 4. 打开网易BUFF，在饰品市场列表页面中，原先的3D监视/社区服监视多了一个【加入对比】
 5. 加入想要对比的饰品后，在页面顶部【游戏资讯】右侧多了一个对比列表
 6. 选择两项即可进行对比
