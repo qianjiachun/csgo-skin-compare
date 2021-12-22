@@ -1,7 +1,7 @@
 ## CSGO饰品对比
 
 ### 发布地址（Release & Install）
-[https://greasyfork.org/zh-CN/scripts/427277]（https://greasyfork.org/zh-CN/scripts/427277）
+[https://greasyfork.org/zh-CN/scripts/427277](https://greasyfork.org/zh-CN/scripts/427277)
 
 ### 介绍
 1. 使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了
