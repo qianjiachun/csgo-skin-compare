@@ -36,7 +36,6 @@ function initDom_addBtn() {
         let trDom = domList[i].parentNode.parentNode.parentNode.parentNode;
         let assetid = domList[i].getAttribute("data-assetid");
         let inspectUrl = trDom.getElementsByClassName("csgo_inspect_img_btn")[0].getAttribute("data-inspecturl");
-        console.log(assetid, inspectUrl)
         if (!trDom.getElementsByClassName("btn-buy-order")[0]) {
             // 有自己上架的饰品
             continue;
@@ -117,7 +116,7 @@ function initFunc() {
             let appid = domListCopy[i].getAttribute("appid");
             let classid = domListCopy[i].getAttribute("classid");
             let sell_order_id = domListCopy[i].getAttribute("sell_order_id");
-            let text = `https://buff.163.com/market/m/item_detail?appid=${appid}&game=csgo&assetid=${assetid}&classid=${classid}&instanceid=${instanceid}&sell_order_id=${sell_order_id}`
+            let text = `https://buff.163.com/market/m/item_detail?game=csgo&assetid=${assetid}&classid=${classid}&instanceid=${instanceid}&sell_order_id=${sell_order_id}`
             GM_setClipboard(text);
             showMessage("复制成功，可粘贴至社区服检视", "success");
         })
