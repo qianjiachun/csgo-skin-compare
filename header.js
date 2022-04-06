@@ -13,6 +13,7 @@
 // @grant        GM_deleteValue
 // @grant        GM_listValues
 // @grant        GM_setClipboard
+// @run-at       document-start
 // @require      https://cdn.jsdelivr.net/npm/notice.js@0.4.0/dist/notice.js
 // @require      https://lib.baomitu.com/vue/3.0.11/vue.global.prod.js
 // @require      https://cdn.jsdelivr.net/npm/comparison-slider@1.1.0/dist/comparison-slider.min.js
