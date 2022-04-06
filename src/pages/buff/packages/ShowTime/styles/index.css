@@ -1,0 +1,16 @@
+.t_Left {
+    position: relative;
+}
+
+.ex-time {
+    position: absolute;
+    margin-top: -35px;
+    width: 100%;
+    text-align: right;
+    color: gray;
+    font-size: 12px;
+}
+
+.ex-time span{
+    margin-right: 10px;
+}

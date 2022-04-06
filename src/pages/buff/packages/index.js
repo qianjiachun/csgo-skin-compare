@@ -2,6 +2,7 @@ import AddButton from "./AddButton"
 import CompareList from "./CompareList"
 import Compare3D from "./Compare3D"
 import Inspect3D from "./Inspect3D"
+import ShowTime from "./ShowTime"
 
 function initPkg() {
     if (location.href.indexOf("goods") !== -1) {
@@ -21,6 +22,7 @@ function initPkg() {
 function initMarket() {
     AddButton.init();
     CompareList.init();
+    ShowTime.init();
 }
 
 function initCompare3D() {

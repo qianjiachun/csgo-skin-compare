@@ -1,7 +1,7 @@
 import {initPkg} from "./packages"
 
-function beforeInit() {
 
+function beforeInit() {
 }
 
 function init() {
