@@ -8,9 +8,15 @@ let mouseDownInfo = {};
 let mouseMoveInfo = {};
 
 function init() {
-    index = getQueryString("index");
-    initMessage(handleMessage);
-    initFunc();
+    let t = setInterval(() => {
+        let canvas = document.querySelector("canvas");
+        if (canvas) {
+            clearInterval(t);
+            index = getQueryString("index");
+            initMessage(handleMessage);
+            initFunc();
+        }
+    }, 500);
 }
 
 function initMessage(callback) {
