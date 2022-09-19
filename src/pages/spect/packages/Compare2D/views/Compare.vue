@@ -43,8 +43,8 @@ export default defineComponent({
                 let ratio = img.height / img.width;
                 let width = document.getElementById("app").clientWidth;
                 let height = width * ratio;
-                document.getElementsByClassName("menu")[0].style.height = height;
-                styleWrap.value = `width:${width};height:${height};`
+                document.getElementsByClassName("menu")[0].style.height = `${height}px`;
+                styleWrap.value = `width:${width}px;height:${height}px;`
                 styleBefore.value = `background-image: url(${img1})`;
                 styleAfter.value = `background-image: url(${img2})`;
                 nextTick(() => {

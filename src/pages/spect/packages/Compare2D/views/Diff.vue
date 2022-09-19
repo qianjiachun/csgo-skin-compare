@@ -87,7 +87,7 @@ export default defineComponent({
             img.src = img1.value;
             img.onload = () => {
                 ratio = img.height / img.width;
-                document.getElementsByClassName("menu")[0].style.height = document.getElementById("app").clientWidth * ratio;
+                document.getElementsByClassName("menu")[0].style.height = document.getElementById("app").clientWidth * ratio + "px";
                 nextTick(() => {
                     updateDiffImg(params.value);
                 })
