@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CSGO饰品2D/3D对比
 // @namespace    https://github.com/qianjiachun
-// @version      2022.09.19.01
+// @version      2023.05.05.01
 // @description  使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了
 // @author       小淳
 // @match        *://buff.163.com/goods*
@@ -13,6 +13,7 @@
 // @grant        GM_deleteValue
 // @grant        GM_listValues
 // @grant        GM_setClipboard
+// @grant        unsafeWindow
 // @run-at       document-start
 // @require      https://cdn.jsdelivr.net/npm/notice.js@0.4.0/dist/notice.js
 // @require      https://lib.baomitu.com/vue/3.0.11/vue.global.prod.js

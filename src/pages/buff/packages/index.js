@@ -7,9 +7,15 @@ import ShowTime from "./ShowTime"
 function initPkg() {
     if (location.href.indexOf("goods") !== -1) {
         let timer = setInterval(() => {
-            if (document.getElementsByClassName("t_Left")) {
-                initMarket();
-                clearInterval(timer);
+            if (document.getElementsByClassName("j_shoptip_handler").length > 0) {
+                if (unsafeWindow.hookList.length > 0) {
+                    clearInterval(timer);
+                    initMarket();
+                } else {
+                    // 调用网页自身的请求实现拦截
+                    let marketShow = new unsafeWindow.marketShow();
+                    marketShow.init();
+                }
             }
         }, 300);
     } else if (location.href.indexOf("compare3d") !== -1) {
