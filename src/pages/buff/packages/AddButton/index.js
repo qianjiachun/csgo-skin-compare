@@ -24,13 +24,13 @@ function init() {
 
 function initDom() {
     initDom_addBtn();
-    initDom_CopyBtn();
+    // initDom_CopyBtn();
 }
 
 function initDom_addBtn() {
     skinImg = getSkinImg();
     skinName = getSkinName();
-    let domList = document.getElementsByClassName("ctag btn_3d");
+    let domList = document.getElementsByClassName("ctag btn_action_link");
     for (let i = 0; i < domList.length; i++) {
         let parentDom = domList[i].parentNode;
         let trDom = domList[i].parentNode.parentNode.parentNode.parentNode;
@@ -43,7 +43,7 @@ function initDom_addBtn() {
         let price = trDom.getElementsByClassName("btn-buy-order")[0].getAttribute("data-price");
         let shopDom = trDom.getElementsByClassName("j_shoptip_handler")[0];
         let shopHref = shopDom.href;
-        let shopImg = shopDom.getElementsByClassName("user-thum")[0].src;
+        let shopImg = shopDom.getElementsByClassName("user-avatar")[0].src;
         let shopName = shopDom.innerText;
         
         if (assetid) {
@@ -130,7 +130,7 @@ function onClickAddButton(info) {
         return res.text();
     }).then(ret => {
         if (ret.indexOf("not found") !== -1 || ret.indexOf("不支持3D") !== -1) {
-            showMessage("解析该饰品失败", "error");
+            showMessage("解析该饰品失败，暂不支持3D", "error");
             return;
         }
         let doc = (new DOMParser()).parseFromString(ret, 'text/html');
