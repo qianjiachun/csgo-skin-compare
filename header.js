@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CSGO饰品2D/3D对比
 // @namespace    https://github.com/qianjiachun
-// @version      2023.12.04.01
+// @version      2024.05.02.01
 // @description  使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了。同时显示饰品上架时间和修改时间。
 // @author       小淳
 // @match        *://buff.163.com/goods*
