@@ -2,21 +2,36 @@ import { dateFormat } from "@/src/utils";
 import "./styles/index.css"
 
 function init() {
-    if (unsafeWindow.hookList.length <= 0) return;
-    for (let i = unsafeWindow.hookList.length - 1; i >= 0; i--) {
-        let item = unsafeWindow.hookList[i];
-        if (item.responseURL.includes("goods/sell_order")) {
-            let data = JSON.parse(item.responseText);
-            insertDom(data.data.items)
-            break;
+    let hasValidRes = false;
+    let timer = setInterval(() => {
+        for (let i = unsafeWindow.hookList.length - 1; i >= 0; i--) {
+            let item = unsafeWindow.hookList[i];
+            if (item.responseURL.includes("goods/sell_order")) {
+                clearInterval(timer);
+                hasValidRes = true;
+                break;
+            }
         }
-    }
-    unsafeWindow.hookCallback = function (xhr) {
-        if (xhr.responseURL.includes("goods/sell_order")) {
-            let data = JSON.parse(xhr.responseText);
-            insertDom(data.data.items)
+        if (!hasValidRes) {
+            let marketShow = new unsafeWindow.marketShow();
+            marketShow.init();
+            return;
         }
-    }
+        for (let i = unsafeWindow.hookList.length - 1; i >= 0; i--) {
+            let item = unsafeWindow.hookList[i];
+            if (item.responseURL.includes("goods/sell_order")) {
+                let data = JSON.parse(item.responseText);
+                insertDom(data.data.items)
+                break;
+            }
+        }
+        unsafeWindow.hookCallback = function (xhr) {
+            if (xhr.responseURL.includes("goods/sell_order")) {
+                let data = JSON.parse(xhr.responseText);
+                insertDom(data.data.items)
+            }
+        }
+    }, 500);
 }
 
 function insertDom(items) {
