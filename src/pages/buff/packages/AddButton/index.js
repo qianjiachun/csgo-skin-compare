@@ -127,20 +127,13 @@ function onClickAddButton(info) {
     // GM_deleteValue("CompareList");
     // return
     getAssetIdInfo(info.assetid).then(res => {
-        return res.text();
+        return res.json();
     }).then(ret => {
-        if (ret.indexOf("not found") !== -1 || ret.indexOf("不支持3D") !== -1) {
+        if (ret.code === "Error") {
             showMessage("解析该饰品失败，暂不支持3D", "error");
             return;
         }
-        let doc = (new DOMParser()).parseFromString(ret, 'text/html');
-        let scripts = doc.scripts;
-        let data = JSON.parse(getStrMiddle(scripts[scripts.length - 1].innerHTML, "var data = ", ";"));
-        if (!data) {
-            showMessage("解析失败 原因：未登录", "error");
-            return;
-        }
-        let obj = getSkinData(data);
+        let obj = getSkinData(ret.data);
         obj.assetid = info.assetid;
         obj.price = info.price;
         obj.inspectUrl = info.inspectUrl;
@@ -168,14 +161,17 @@ function getSkinData(data) {
     if (data) {
         let i = 1;
         let textureList = [];
-        while (`texture_${i}` in data.texture_url) {
-            if (i > 1000) {
-                // 熔断
-                break;
-            }
-            textureList.push({id: `texture_${i}`, url: data.texture_url[`texture_${i}`]});
-            i++;
+        for (const key in data.texture_url) {
+            textureList.push({id: key, url: data.texture_url[key]});
         }
+        // while (`texture_${i}` in data.texture_url) {
+        //     if (i > 1000) {
+        //         // 熔断
+        //         break;
+        //     }
+        //     textureList.push({id: `texture_${i}`, url: data.texture_url[`texture_${i}`]});
+        //     i++;
+        // }
         ret.textures = textureList;
         ret.name = skinName;
         ret.img_url = skinImg;
