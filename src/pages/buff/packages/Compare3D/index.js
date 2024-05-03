@@ -24,7 +24,7 @@ function getModelLinks() {
     let data = JSON.parse(GM_getValue("CompareList_3D") || "[]") || [];
     for (let i = 0; i < data.length; i++) {
         let item = data[i];
-        ret.push("https://buff.163.com/market/csgo_inspect/3d?compare=true&assetid=" + item.assetid);
+        ret.push("https://buff.163.com/3d_inspect/cs2?compare=true&assetid=" + item.assetid);
     }
     return ret;
 }

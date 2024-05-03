@@ -20,7 +20,7 @@ function initPkg() {
         }, 300);
     } else if (location.href.indexOf("compare3d") !== -1) {
         initCompare3D();
-    } else if (location.href.indexOf("market/csgo_inspect/3d") !== -1) {
+    } else if (location.href.indexOf("3d_inspect/cs2") !== -1) {
         initInspect3D();
     }
 }
