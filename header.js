@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CSGO饰品2D/3D对比
 // @namespace    https://github.com/qianjiachun
-// @version      2024.05.04.01
+// @version      2024.05.31.02
 // @description  使用图像处理技术对CSGO饰品网站上的皮肤进行对比，可以快速分辨出饰品细微的差异，不用再手动来回切换对比了。同时显示饰品上架时间和修改时间。
 // @author       小淳
 // @match        *://buff.163.com/goods*
@@ -15,11 +15,11 @@
 // @grant        GM_setClipboard
 // @grant        unsafeWindow
 // @run-at       document-start
-// @require      https://cdn.jsdelivr.net/npm/notice.js@0.4.0/dist/notice.js
+// @require      https://fastly.jsdelivr.net/npm/notice.js@0.4.0/dist/notice.js
 // @require      https://lib.baomitu.com/vue/3.0.11/vue.global.prod.js
-// @require      https://cdn.jsdelivr.net/npm/comparison-slider@1.1.0/dist/comparison-slider.min.js
-// @require      https://cdn.jsdelivr.net/npm/canvas-compare@3.0.0/src/canvas-compare.min.js
-// @require      https://cdn.jsdelivr.net/npm/@vueform/slider@2.0.4/dist/slider.global.js
+// @require      https://fastly.jsdelivr.net/npm/comparison-slider@1.1.0/dist/comparison-slider.min.js
+// @require      https://fastly.jsdelivr.net/npm/canvas-compare@3.0.0/src/canvas-compare.min.js
+// @require      https://fastly.jsdelivr.net/npm/@vueform/slider@2.0.4/dist/slider.global.js
 // ==/UserScript==
 
 unsafeWindow.hookList = [];

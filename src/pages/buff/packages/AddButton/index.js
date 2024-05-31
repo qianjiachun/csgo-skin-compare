@@ -181,15 +181,7 @@ function getSkinData(data) {
 }
 
 function getSkinImg() {
-    let ret = "";
-    let parent = document.getElementsByClassName("t_Center");
-    if (parent) {
-        let imgDom = parent[0].getElementsByTagName("img");
-        if (imgDom) {
-            ret = imgDom[0].src;
-        }
-    }
-    return ret;
+    return document.getElementsByClassName("t_Center")[1].getElementsByTagName("img")[0].src;
 }
 
 function getSkinName() {
